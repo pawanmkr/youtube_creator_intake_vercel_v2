@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#102a56" />
+<title>YouTube Strategy Intake</title>
+<style>
+:root{--bg:#edf4ff;--card:#fff;--ink:#13233f;--muted:#64748b;--line:#dbe6f5;--accent:#2563eb;--accent-dark:#173ea8;--pale:#e8f1ff;--navy:#102a56;--sky:#38bdf8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 8% 0%,#dbeafe 0,transparent 38%),radial-gradient(ellipse at 100% 10%,#e0f2fe 0,transparent 30%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.shell{max-width:900px;margin:0 auto;padding:25px 16px 50px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
+.brand{font-weight:850;letter-spacing:-.03em;font-size:14px;display:flex;align-items:center;gap:10px;color:var(--navy)}
+.mark{width:38px;height:38px;background:linear-gradient(145deg,#2563eb,#102a56);color:#fff;border-radius:12px;display:grid;place-items:center;font-size:17px;box-shadow:0 7px 18px #2563eb35}
+.pill{font-size:12px;font-weight:800;color:#1d4ed8;background:#dbeafe;border:1px solid #bfdbfe;border-radius:999px;padding:7px 11px}
+.hero{background:linear-gradient(130deg,#102a56 0%,#1746a2 65%,#1677c8 100%);color:white;padding:30px 28px;border-radius:24px;position:relative;overflow:hidden;box-shadow:0 16px 40px #173ea825;margin-bottom:18px}
+.hero:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #ffffff20;border-radius:50%;right:-75px;top:-100px;box-shadow:0 0 0 28px #ffffff08,0 0 0 58px #ffffff06}
+.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:.15em;font-weight:850;color:#93c5fd;margin-bottom:11px;position:relative;z-index:1}
+h1{font-size:clamp(30px,6vw,46px);line-height:1.08;letter-spacing:-.05em;margin:0 0 13px;max-width:700px;position:relative;z-index:1}
+.hero p{color:#e0ecff;font-size:15px;max-width:700px;margin:0;position:relative;z-index:1}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;position:relative;z-index:1}.meta span{font-size:12px;color:#eff6ff;background:#ffffff16;border:1px solid #ffffff26;border-radius:9px;padding:7px 10px}
+.warning{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:16px 18px;border-radius:15px;margin:0 0 18px;font-size:14px}.warning strong{display:block;font-size:15px;margin-bottom:4px}
+.intro{padding:0 3px 15px;color:#475569;font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 32px rgba(24,63,130,.07);overflow:hidden}
+.form-head{padding:20px 24px;background:#f8fbff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.form-head h2{font-size:19px;letter-spacing:-.025em;margin:0}.form-head p{margin:3px 0 0;color:var(--muted);font-size:12px}
+.progress{height:5px;background:#e4edfa}.bar{height:100%;background:linear-gradient(90deg,#2563eb,#38bdf8);width:0%;transition:width .2s}
+.form-body{padding:22px 24px}
+.group-title{margin:28px 0 15px;padding:12px 14px;background:linear-gradient(90deg,#eaf2ff,#f5faff);border:1px solid #d9e7ff;border-left:4px solid var(--accent);border-radius:10px}
+.group-title:first-child{margin-top:0}.group-title .num{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:900;color:#2563eb}.group-title h3{font-size:18px;letter-spacing:-.025em;margin:3px 0 2px;color:#102a56}.group-title p{font-size:12px;color:#64748b;margin:0}
+.field{padding:15px 0 17px;border-bottom:1px solid #edf2f9}.field:last-child{border-bottom:0}.field label,.label{display:block;font-weight:750;font-size:14px;margin-bottom:8px;color:#1e3150}.qnum{display:inline-grid;place-items:center;min-width:25px;height:25px;padding:0 5px;margin-right:7px;border-radius:8px;background:#e8f1ff;color:#1d4ed8;font-size:11px;font-weight:900;vertical-align:middle}.required{color:#dc2626}.subhint{font-size:12px;color:var(--muted);margin-top:6px}
+input[type=text],input[type=email],input[type=number],input[type=url],textarea,select{width:100%;border:1px solid #cfdaea;background:#fff;border-radius:11px;padding:12px 13px;outline:none;color:var(--ink);transition:border .15s,box-shadow .15s}
+textarea{resize:vertical;min-height:88px}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #2563eb18}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.choice{position:relative}.choice input{position:absolute;opacity:0;pointer-events:none}.choice span{display:flex;align-items:flex-start;gap:9px;padding:11px;border:1px solid #dce5f2;border-radius:11px;background:#fff;font-size:13px;min-height:45px;cursor:pointer;transition:.15s}.choice span:before{content:"";width:16px;height:16px;flex:0 0 16px;border:1.5px solid #9aabc2;border-radius:5px;margin-top:2px}.choice.radio span:before{border-radius:50%}.choice input:checked+span{border-color:#60a5fa;background:#eff6ff;color:#1d4ed8}.choice input:checked+span:before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px #eff6ff}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.scale label{position:relative}.scale input{position:absolute;opacity:0}.scale span{display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;height:42px;font-weight:750;cursor:pointer}.scale input:checked+span{background:var(--accent);color:white;border-color:var(--accent)}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 24px;border-top:1px solid var(--line);background:#f8fbff}.btn{border:0;border-radius:11px;padding:12px 18px;font-weight:800;font-size:14px}.btn-primary{background:linear-gradient(120deg,#2563eb,#1746a2);color:#fff;box-shadow:0 5px 12px #2563eb25}.btn-primary:hover{filter:brightness(1.05)}.btn-secondary{background:#e7eef9;color:#243b61}.btn:disabled{opacity:.35;cursor:not-allowed}
+.footer{text-align:center;color:#8494ad;font-size:11px;padding:20px 10px}
+.hidden{display:none!important}.success{text-align:center;padding:36px 22px}.success .check{width:58px;height:58px;border-radius:18px;background:#dcfce7;color:#166534;display:grid;place-items:center;font-size:26px;margin:0 auto 18px}.success h2{font-size:27px;margin:0 0 8px}.success p{color:var(--muted);max-width:510px;margin:0 auto 20px}
+@media(max-width:600px){.shell{padding:13px 10px 30px}.top{margin-bottom:14px}.hero{padding:24px 19px;border-radius:19px}.hero p{font-size:14px}.form-head{padding:16px}.form-body{padding:15px 16px}.group-title{margin-top:23px}.choices{grid-template-columns:1fr}.choice span{min-height:42px}.actions{padding:13px 16px}.btn{padding:12px 13px}.pill{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top"><div class="brand"><div class="mark">▶</div> CREATOR STRATEGY INTAKE</div><div class="pill">YouTube Growth Assessment</div></div>
+  <header class="hero">
+    <div class="eyebrow">Your channel. Your goals. Your next move.</div>
+    <h1>Chalo, aapka YouTube game samajhte hain.</h1>
+    <p>Yeh form mujhe aapki strengths, content ideas, goals aur current challenges samajhne mein help karega. Answers honest aur detailed rakhein — impress karne ke liye nahi, sahi strategy find karne ke liye.</p>
+    <div class="meta"><span>☑ Around 30 minutes</span><span>✎ Think freely, answer honestly</span><span>↗ No perfect answers needed</span></div>
+  </header>
+  <div class="warning"><strong>⚠️ Please form tabhi fill karein jab aapke paas kam se kam 30 minutes free hon.</strong>Isse haste mein fill mat kariye. Thoda calm aur collected hokar baithiye, questions ko properly sochiye, aur phir answers dijiye. Aapke thoughtful answers se hi useful strategy banegi.</div>
+  <div class="intro">Neeche saare questions ek hi page par hain, taaki aapko pehle se idea rahe ki kitna fill karna hai. Jahan answer nahi pata, honestly bata dein. * wale questions required hain.</div>
+  <main class="card" id="formCard">
+    <div class="form-head"><div><h2>Your Creator Brief</h2><p>All questions ek page par · Required questions marked *</p></div><div style="font-size:12px;font-weight:800;color:#2563eb;white-space:nowrap"><span id="answeredCount">0</span> answered</div></div>
+    <div class="progress"><div class="bar" id="progressBar"></div></div>
+    <form id="intakeForm" novalidate>
+      <div class="form-body">
+        <div class="group-title"><div class="num">01 / About you</div><h3>Sabse pehle, aapke baare mein</h3><p>Context samajhna zaroori hai, taaki suggestions aapki real life ke according hon.</p></div>
+        <div class="field"><label for="name"><span class="qnum">01</span>Aapko kis naam se bulaun? <b class="required">*</b></label><input id="name" name="name" type="text" required placeholder="Aapka naam"></div>
+        <div class="field"><label for="email"><span class="qnum">02</span>Email address (optional)</label><input id="email" name="email" type="email" placeholder="you@example.com"></div>
+        <div class="field"><label><span class="qnum">03</span>Abhi aap YouTube journey ke kis stage par hain? <b class="required">*</b></label><div class="choices">
+          <label class="choice radio"><input type="radio" name="stage" value="Abhi channel start nahi kiya" required><span>Abhi channel start nahi kiya</span></label>
+          <label class="choice radio"><input type="radio" name="stage" value="Channel hai, par expected growth nahi hai"><span>Channel hai, par expected growth nahi hai</span></label>
+          <label class="choice radio"><input type="radio" name="stage" value="Channel chal raha hai, ab scale karna hai"><span>Channel chal raha hai, ab scale karna hai</span></label>
+          <label class="choice radio"><input type="radio" name="stage" value="Abhi niche aur ideas explore kar raha/rahi hoon"><span>Abhi niche aur ideas explore kar raha/rahi hoon</span></label>
+        </div></div>
+        <div class="field"><label for="work"><span class="qnum">04</span>Aap abhi kya karte hain, aur aapka normal week kaisa dikhta hai?</label><textarea id="work" name="work" placeholder="Job/studies, responsibilities, daily routine, available time…"></textarea></div>
+
+        <div class="group-title"><div class="num">02 / Goals</div><h3>Aapke liye success ka matlab kya hai?</h3><p>Ambition achhi baat hai. Bas target specific hona chahiye.</p></div>
+        <div class="field"><label><span class="qnum">05</span>YouTube se aapko sabse zyada kya achieve karna hai? <b class="required">*</b></label><div class="choices">
+          <label class="choice"><input type="checkbox" name="goal" value="Personal brand banana"><span>Personal brand banana</span></label><label class="choice"><input type="checkbox" name="goal" value="Income earn karna"><span>Income earn karna</span></label><label class="choice"><input type="checkbox" name="goal" value="Famous / well-known banna"><span>Famous / well-known banna</span></label><label class="choice"><input type="checkbox" name="goal" value="Business / leads grow karna"><span>Business grow karna ya leads lana</span></label><label class="choice"><input type="checkbox" name="goal" value="Logon ko teach ya help karna"><span>Logon ko teach ya help karna</span></label><label class="choice"><input type="checkbox" name="goal" value="Creative expression"><span>Creative expression</span></label>
+        </div></div>
+        <div class="field"><label for="success"><span class="qnum">06</span>Success ko numbers aur deadline ke saath define kariye. <b class="required">*</b></label><textarea id="success" name="success" required placeholder="Example: 18 months mein 50,000 subscribers; monthly 3 lakh views; 24 months mein ₹40,000/month. Fame goal hai toh aisa observable result bataiye jo prove kare ki aap successful ho gaye."></textarea><div class="subhint">“Popular banna hai” ya “paise kamane hain” enough nahi hai. Kitne subscribers, kitne views, kitni income aur kab tak?</div></div>
+        <div class="field"><label for="priority"><span class="qnum">07</span>In goals mein sabse important kaunsa hai, aur kyun?</label><textarea id="priority" name="priority" placeholder="Primary goal aur uske peeche reason…"></textarea></div>
+        <div class="field"><label for="deadline"><span class="qnum">08</span>Aapko YouTube se meaningful results kab tak chahiye?</label><select id="deadline" name="deadline"><option value="">Select kariye</option><option>Jaldi se jaldi — 3 months se kam</option><option>3–6 months</option><option>6–12 months</option><option>1–2 years</option><option>Long-term game khel sakta/sakti hoon</option></select></div>
+
+        <div class="group-title"><div class="num">03 / Your strengths</div><h3>Aapki strongest qualities kya hain?</h3><p>Niche aksar skills, curiosity aur audience demand ke intersection par milta hai.</p></div>
+        <div class="field"><label for="skills"><span class="qnum">09</span>Aap genuinely kis cheez mein achhe hain? Examples ya proof bhi dein.</label><textarea id="skills" name="skills" placeholder="Skills, work experience, achievements, log aapse kis cheez mein help maangte hain…"></textarea></div>
+        <div class="field"><label for="interests"><span class="qnum">10</span>Kaunse topics hain jinhe aap saalon tak explore kar sakte hain?</label><textarea id="interests" name="interests" placeholder="Interests list karein aur batayein ki unmein specifically interesting kya lagta hai."></textarea></div>
+        <div class="field"><label for="edge"><span class="qnum">11</span>Aapki story, experience, access ya point of view mein kya unique hai?</label><textarea id="edge" name="edge" placeholder="Unusual journey, job access, expertise, experiments, community, different perspective…"></textarea></div>
+        <div class="field"><label for="proof"><span class="qnum">12</span>Kya proof hai ki log aapki knowledge ya work ko value karte hain?</label><textarea id="proof" name="proof" placeholder="Audience, customer results, teaching experience, work samples, repeated questions — ya honestly bata dein ki abhi proof nahi hai."></textarea></div>
+
+        <div class="group-title"><div class="num">04 / Niche & content</div><h3>Kis audience ke liye kya banayenge?</h3><p>Abhi perfect niche decide hona zaroori nahi. Humein potential evaluate karne ke liye raw ideas chahiye.</p></div>
+        <div class="field"><label for="ideas"><span class="qnum">13</span>Kaunse topics ya niches consider kar rahe hain? Aur kyun?</label><textarea id="ideas" name="ideas" placeholder="Jo ideas confusing hain, woh bhi likhiye."></textarea></div>
+        <div class="field"><label for="audience"><span class="qnum">14</span>Aapki target audience kaun hai, aur unki problems ya desires kya hain?</label><textarea id="audience" name="audience" placeholder="“Sab log” se zyada specific hone ki koshish karein."></textarea></div>
+        <div class="field"><label for="videoideas"><span class="qnum">15</span>Maximum 5 video ideas likhiye jo aap actually banana chahenge.</label><textarea id="videoideas" name="videoideas" placeholder="Possible titles likh sakte hain. Ideas rough hon toh bhi chalega."></textarea></div>
+        <div class="field"><label for="inspiration"><span class="qnum">16</span>2–5 creators/channels bataiye jinhe aap admire karte hain. Unka kya kaam karta hai?</label><textarea id="inspiration" name="inspiration" placeholder="Creator names, video links, storytelling, thumbnails, topics, format…"></textarea></div>
+        <div class="field"><label><span class="qnum">17</span>Aap kaunse content formats bana sakte hain ya try karne ko ready hain?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="format" value="Face camera / talking head"><span>Face camera / talking head</span></label><label class="choice"><input type="checkbox" name="format" value="Voice-over / faceless"><span>Voice-over / faceless</span></label><label class="choice"><input type="checkbox" name="format" value="Tutorial / screen recording"><span>Tutorial / screen recording</span></label><label class="choice"><input type="checkbox" name="format" value="Interview / podcast"><span>Interview / podcast</span></label><label class="choice"><input type="checkbox" name="format" value="Vlog / documentary"><span>Vlog / documentary</span></label><label class="choice"><input type="checkbox" name="format" value="Animation / visual explainers"><span>Animation / visual explainers</span></label>
+        </div></div>
+
+        <div class="group-title existing-only hidden" data-existing-title><div class="num">05 / Existing channel</div><h3>Ab channel ko honestly diagnose karte hain.</h3><p>Algorithm ko blame karne se zyada useful hai evidence dekhna. Exact numbers nahi pata toh estimate dein.</p></div>
+        <div class="field existing-only hidden" data-existing><label for="channel"><span class="qnum">18</span>Channel ka naam aur URL <b class="required">*</b></label><input id="channel" name="channel" type="url" placeholder="https://youtube.com/@yourchannel"><div class="subhint">Agar URL validation issue kare, full channel link paste karein.</div></div>
+        <div class="field existing-only hidden" data-existing><label for="channelage"><span class="qnum">19</span>Kitne time se videos post kar rahe hain, aur frequency kya hai?</label><textarea id="channelage" name="channelage" placeholder="Channel age, uploads per week/month, breaks, consistency…"></textarea></div>
+        <div class="field existing-only hidden" data-existing><label for="metrics"><span class="qnum">20</span>Channel ke current numbers kya hain? Jitna pata ho share karein.</label><textarea id="metrics" name="metrics" placeholder="Subscribers, monthly views, impressions, CTR, average view duration, retention, returning viewers, revenue… time period bhi likhein."></textarea></div>
+        <div class="field existing-only hidden" data-existing><label for="bestvideos"><span class="qnum">21</span>Aapke best-performing 3 videos kaunse hain? Links aur reason batayein.</label><textarea id="bestvideos" name="bestvideos" placeholder="Links + views/results + aapke hisaab se kyun perform kiya"></textarea></div>
+        <div class="field existing-only hidden" data-existing><label for="diagnosis"><span class="qnum">22</span>Aapko kyun lagta hai ki aapka channel grow nahi kar raha ya expected perform nahi kar raha? <b class="required">*</b></label><textarea id="diagnosis" name="diagnosis" required placeholder="Aapke hisaab se problem kya hai? Analytics mein kaunsa evidence aapki diagnosis support karta hai? Agar exact problem nahi pata, honestly likhein."></textarea></div>
+        <div class="field existing-only hidden" data-existing><label for="experiments"><span class="qnum">23</span>Ab tak kya-kya changes try kiye, aur result kya raha?</label><textarea id="experiments" name="experiments" placeholder="Topics, titles, thumbnails, hooks, length, upload schedule, format…"></textarea></div>
+        <div class="field existing-only hidden" data-existing><label for="help"><span class="qnum">24</span>Aapko kyun lagta hai ki aapko meri help chahiye? Specifically mujhse kya solve ya improve karwana chahte hain? <b class="required">*</b></label><textarea id="help" name="help" required placeholder="Mere saath kaam karke aap kya expect karte hain? Aapko kya lagta hai ki main kya value la sakta hoon jo abhi aapke paas nahi hai?"></textarea><div class="subhint">Is question mein open-ended answer bilkul acceptable hai. Apne words mein explain karein.</div></div>
+
+        <div class="group-title"><div class="num">06 / Practical reality</div><h3>Kitna execute kar paayenge?</h3><p>Best strategy wahi hai jo aap consistently follow kar sakein.</p></div>
+        <div class="field"><label for="hours"><span class="qnum">25</span>Har week realistically YouTube ko kitne hours de sakte hain?</label><select id="hours" name="hours"><option value="">Select kariye</option><option>3 hours se kam</option><option>3–5 hours</option><option>6–10 hours</option><option>11–20 hours</option><option>20+ hours</option></select></div>
+        <div class="field"><label for="budget"><span class="qnum">26</span>Monthly content production budget kitna hai?</label><select id="budget" name="budget"><option value="">Select kariye</option><option>₹0 — free tools hi use karne hain</option><option>₹2,000 se kam</option><option>₹2,000–₹5,000</option><option>₹5,000–₹15,000</option><option>₹15,000+</option></select></div>
+        <div class="field"><label for="resources"><span class="qnum">27</span>Abhi aapke paas kaunse equipment aur skills hain?</label><textarea id="resources" name="resources" placeholder="Phone/camera, mic, editing, design, scripting, research, team/help…"></textarea></div>
+        <div class="field"><label for="language"><span class="qnum">28</span>Preferred language(s) aur target market kya hai?</label><input id="language" name="language" type="text" placeholder="e.g. Hindi/Hinglish, India; English, global"></div>
+        <div class="field"><label for="constraints"><span class="qnum">29</span>Consistency mein kya obstacles aa sakte hain? Privacy ya koi aur restriction?</label><textarea id="constraints" name="constraints" placeholder="Time, confidence, family/privacy, job rules, budget, access, other constraints…"></textarea></div>
+        <div class="field"><label><span class="qnum">30</span>Camera par aane mein kitna comfortable feel karte hain?</label><div class="scale">
+          <label><input type="radio" name="camera" value="1"><span>1</span></label><label><input type="radio" name="camera" value="2"><span>2</span></label><label><input type="radio" name="camera" value="3"><span>3</span></label><label><input type="radio" name="camera" value="4"><span>4</span></label><label><input type="radio" name="camera" value="5"><span>5</span></label>
+        </div><div class="subhint">1 = bilkul comfortable nahi · 5 = fully comfortable</div></div>
+
+        <div class="group-title"><div class="num">07 / Mindset</div><h3>Jab cheezein kaam nahi karti, tab kya karte hain?</h3><p>Abhi sab kuch aana zaroori nahi. Learn aur improve karne ki willingness matter karti hai.</p></div>
+        <div class="field"><label for="failure"><span class="qnum">31</span>Kisi aisi cheez ka example dein jisme pehle fail hue, phir improve kiya.</label><textarea id="failure" name="failure" placeholder="Life ke kisi bhi area ka example chalega. Aapne kya change kiya?"></textarea></div>
+        <div class="field"><label for="feedback"><span class="qnum">32</span>Blunt feedback ya criticism milta hai toh usually kaise react karte hain?</label><textarea id="feedback" name="feedback" placeholder="Ideal answer se zyada real example useful hoga."></textarea></div>
+        <div class="field"><label><span class="qnum">33</span>Analytics dekhkar apna approach change karne ke liye kitne ready hain?</label><div class="scale">
+          <label><input type="radio" name="learning" value="1"><span>1</span></label><label><input type="radio" name="learning" value="2"><span>2</span></label><label><input type="radio" name="learning" value="3"><span>3</span></label><label><input type="radio" name="learning" value="4"><span>4</span></label><label><input type="radio" name="learning" value="5"><span>5</span></label>
+        </div><div class="subhint">1 = bilkul ready nahi · 5 = fully ready</div></div>
+        <div class="field"><label for="extra"><span class="qnum">34</span>Koi aur important context, concern ya question jo mujhe pata hona chahiye?</label><textarea id="extra" name="extra" placeholder="Extra context, work samples, links, concerns…"></textarea></div>
+
+        <div class="group-title"><div class="num">08 / Final commitment</div><h3>Next 30 days mein kya karne ko ready hain?</h3><p>Isse aapki intention ke saath execution readiness bhi samajh aayegi.</p></div>
+        <div class="field"><label for="commitment"><span class="qnum">35</span>Agar hum realistic plan agree karte hain, toh next 30 days mein aap exactly kya karne ko ready hain?</label><textarea id="commitment" name="commitment" placeholder="Specific targets: number of videos, hours, experiments, skills to practise…"></textarea></div>
+        <div class="field"><label><span class="qnum">36</span>Kya aap samajhte hain ki YouTube growth aur viral hona guarantee nahi kiya ja sakta? <b class="required">*</b></label><div class="choices">
+          <label class="choice radio"><input type="radio" name="expectations" value="Haan, samajhta/samajhti hoon" required><span>Haan, samajhta/samajhti hoon</span></label><label class="choice radio"><input type="radio" name="expectations" value="Expectations discuss karni hain"><span>Expectations discuss karni hain</span></label>
+        </div></div>
+        <div class="field"><label class="choice"><input type="checkbox" id="honesty" required><span>Mere answers meri best knowledge ke hisaab se honest hain. <b class="required">*</b></span></label></div>
+      </div>
+      <div class="actions"><button type="button" class="btn btn-secondary" id="resetBtn">Clear form</button><span style="font-size:12px;color:#64748b;text-align:center">Please review your answers before submitting.</span><button type="submit" class="btn btn-primary">Submit via WhatsApp ↗</button></div>
+    </form>
+  </main>
+  <div class="card hidden" id="successCard"><div class="success"><div class="check">✓</div><h2>Aapke answers ready hain!</h2><p>WhatsApp open hona chahiye with your formatted answers. Message review karke Send dabayein. Agar WhatsApp open nahi hota, neeche se answers copy ya download kar sakte hain.</p><button class="btn btn-primary" id="copyBtn">Copy answers</button> <button class="btn btn-secondary" id="downloadBtn">Download .txt</button><p id="copyStatus" style="font-size:12px;margin-top:12px"></p></div></div>
+  <div class="footer">Creator Strategy Intake · Thoughtful answers make better strategy.</div>
+</div>
+<script>
+/* SETUP: Replace with WhatsApp number in international format, digits only.
+   Example India: 919876543210 — no +, spaces or punctuation. */
+const WHATSAPP_NUMBER = "REPLACE_WITH_YOUR_NUMBER";
+const form = document.getElementById('intakeForm');
+const fields = [...document.querySelectorAll('.field')];
+const existingFields = [...document.querySelectorAll('[data-existing]')];
+const existingTitle = document.querySelector('[data-existing-title]');
+const progressBar = document.getElementById('progressBar');
+const answeredCount = document.getElementById('answeredCount');
+const formCard = document.getElementById('formCard');
+const successCard = document.getElementById('successCard');
+let finalMessage = '';
+function isExisting(){
+  const stage = form.querySelector('input[name="stage"]:checked')?.value || '';
+  return stage.includes('Channel hai') || stage.includes('Channel chal raha hai');
+}
+function updatePath(){
+  const show = isExisting();
+  existingFields.forEach(el=>el.classList.toggle('hidden',!show));
+  existingTitle.classList.toggle('hidden',!show);
+  updateProgress();
+}
+function getAnswer(name){
+  const els=[...form.querySelectorAll(`[name="${name}"]`)];
+  if(!els.length)return '';
+  if(els[0].type==='checkbox')return els.filter(e=>e.checked).map(e=>e.value).join(', ');
+  if(els[0].type==='radio')return els.find(e=>e.checked)?.value||'';
+  return els[0].value.trim();
+}
+function updateProgress(){
+  const visibleFields=fields.filter(f=>!f.classList.contains('hidden'));
+  const answered=visibleFields.filter(f=>{
+    const controls=[...f.querySelectorAll('input:not([type=checkbox]):not([type=radio]),textarea,select')];
+    const radios=[...new Set([...f.querySelectorAll('input[type=radio]')].map(e=>e.name))];
+    const checks=[...f.querySelectorAll('input[type=checkbox]')];
+    return controls.some(c=>c.value.trim())||radios.some(n=>f.querySelector(`input[name="${n}"]:checked`))||checks.some(c=>c.checked);
+  }).length;
+  answeredCount.textContent=answered;
+  progressBar.style.width=(visibleFields.length?Math.round(answered/visibleFields.length*100):0)+'%';
+}
+const labels={
+name:'Name',email:'Email',stage:'Current YouTube stage',work:'Current work and weekly situation',goal:'Primary goals',success:'Measurable definition of success',priority:'Most important goal and why',deadline:'Expected results timeline',skills:'Skills and proof',interests:'Long-term interests',edge:'Unique advantage',proof:'Evidence people value their work',ideas:'Niche ideas and motivations',audience:'Target audience and needs',videoideas:'Video ideas',inspiration:'Creators admired and why',format:'Preferred formats',channel:'Channel URL',channelage:'Channel age and publishing frequency',metrics:'Current channel metrics',bestvideos:'Best-performing videos',diagnosis:'Why they think the channel is underperforming',experiments:'Experiments already tried',help:'Why they need my help / expected outcomes',hours:'Weekly time available',budget:'Monthly production budget',resources:'Equipment and skills',language:'Language and target market',constraints:'Constraints and privacy limits',camera:'On-camera comfort (1–5)',failure:'Failure and improvement example',feedback:'Response to criticism',learning:'Willingness to learn from analytics (1–5)',extra:'Additional context',commitment:'30-day commitment',expectations:'Understanding that growth/virality is not guaranteed'
+};
+function formatAnswers(){
+  const order=['name','email','stage','work','goal','success','priority','deadline','skills','interests','edge','proof','ideas','audience','videoideas','inspiration','format','channel','channelage','metrics','bestvideos','diagnosis','experiments','help','hours','budget','resources','language','constraints','camera','failure','feedback','learning','extra','commitment','expectations'];
+  let out='YOUTUBE STRATEGY INTAKE\n'+'='.repeat(28)+'\n'+`Submitted: ${new Date().toLocaleString()}\n\n`;
+  order.forEach(k=>{const value=getAnswer(k);if(value)out+=`${labels[k]||k}:\n${value}\n\n`;});
+  return out.trim();
+}
+function validate(){
+  const requiredText=[...form.querySelectorAll('[required]')].filter(el=>!['checkbox','radio'].includes(el.type)&&!el.closest('.hidden'));
+  for(const el of requiredText){if(!el.value.trim()){el.focus();el.reportValidity();return false;}}
+  const requiredRadioNames=[...new Set([...form.querySelectorAll('input[type=radio][required]')].filter(el=>!el.closest('.hidden')).map(el=>el.name))];
+  for(const name of requiredRadioNames){if(!form.querySelector(`input[name="${name}"]:checked`)){form.querySelector(`input[name="${name}"]`).focus();alert('Please answer the required question.');return false;}}
+  if(!form.querySelector('input[name="goal"]:checked')){document.querySelector('input[name="goal"]').focus();alert('Please choose at least one goal.');return false;}
+  if(isExisting()){
+    for(const id of ['channel','diagnosis','help']){const el=document.getElementById(id);if(!el.value.trim()){el.focus();alert('Please complete the required existing-channel questions.');return false;}}
+  }
+  if(!document.getElementById('honesty').checked){document.getElementById('honesty').focus();alert('Please confirm your answers are honest.');return false;}
+  return true;
+}
+form.addEventListener('change',e=>{if(e.target.name==='stage')updatePath();updateProgress();});
+form.addEventListener('input',updateProgress);
+form.addEventListener('submit',e=>{
+  e.preventDefault();if(!validate())return;
+  finalMessage=formatAnswers();
+  formCard.classList.add('hidden');successCard.classList.remove('hidden');
+  if(/^\d{8,15}$/.test(WHATSAPP_NUMBER)){
+    window.location.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMessage)}`;
+  }else{
+    document.querySelector('.success p').textContent='WhatsApp number abhi configure nahi hua hai. Answers copy/download karein, ya publish karne se pehle script mein WHATSAPP_NUMBER set karein.';
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Saare answers clear kar dein?')){form.reset();updatePath();updateProgress();window.scrollTo({top:0,behavior:'smooth'});}});
+document.getElementById('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(finalMessage);document.getElementById('copyStatus').textContent='Copied! WhatsApp mein paste kar dein.';}catch(e){document.getElementById('copyStatus').textContent='Clipboard access nahi mila. Download .txt backup try karein.';}});
+document.getElementById('downloadBtn').addEventListener('click',()=>{const blob=new Blob([finalMessage],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='youtube-strategy-intake.txt';a.click();URL.revokeObjectURL(a.href);});
+updatePath();
+</script>
+</body>
+</html>
